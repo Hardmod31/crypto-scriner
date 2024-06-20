@@ -18,14 +18,15 @@ const { pathname } = location;
     }
   }
 
-  return <div className="header container d-flex justify-content-between align-items-center expletus-sans">
-    <div className="logo">Market Maker Trap</div>
-    <nav className="header-nav">
-      { pathname !== '/home' && <button onClick={()=>navigate('/home')}>Главная страница</button> }
-      { pathname !== '/' && <button onClick={()=>navigate('/')}>Личный кабинет</button> }
-      <button onClick={logout}>Выйти из учётной записи</button>
-    </nav>
-  </div>;
+  return (
+    <div className="header">
+      <div className="logo">Market Maker Trap</div>
+      <nav className="header-nav">
+        { pathname !== '/home' && <button className='header-btn' onClick={()=>navigate('/home')}>Главная страница</button> }
+        { pathname !== '/' && <button className='header-btn' onClick={()=>navigate('/')}>Личный кабинет</button> }
+        { pathname === '/' && <button className='header-btn' onClick={logout}>Выйти из учётной записи</button> }
+      </nav>
+  </div>);
 };
 
 export default Header;

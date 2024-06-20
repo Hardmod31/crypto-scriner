@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import './LoginPage.css'
 
-export default function LoginPage() {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [stateLogin, setStateLogin] = useState("");
   const [statePassword, setStatePassword] = useState("");
@@ -22,12 +23,18 @@ export default function LoginPage() {
     }
   };
   return (
-    <div>
-      <h1>Авторизация</h1>
-      <input value={stateLogin} onChange={(e) => setStateLogin(e.target.value)} placeholder={"login"} />
-      <input value={statePassword} onChange={(e) => setStatePassword(e.target.value)} placeholder={"password"} />
-      <button onClick={loginHandler}>Вход</button>
-      <button onClick={()=>navigate('/registration')}>Регистрация</button>
+    <div className='logWindow'>
+      <h1 className='logTitle'>Авторизация</h1>
+      <div className='inputBlockLog'>
+        <input className='inputLog' value={stateLogin} onChange={(e) => setStateLogin(e.target.value)} placeholder={"Введите ваше имя"} />
+        <input className='inputLog' value={statePassword} onChange={(e) => setStatePassword(e.target.value)} placeholder={"Введите пароль"} />
+      </div>
+      <div className='buttonBlockLog'>
+        <button className='logBtn' onClick={loginHandler}>Выполнить вход</button>
+        <button className='logBtn' onClick={() => navigate('/registration')}>К регистрации</button>
+      </div>
     </div>
   );
 }
+
+export default LoginPage;

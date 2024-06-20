@@ -1,9 +1,9 @@
-import styles from "./RegistrationPage.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './RegistrationPage.css'
 
-export default function RegistrationPage() {
+const RegistrationPage = () =>  {
   const navigate = useNavigate();
   const [nickName, setNickName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,15 +21,21 @@ export default function RegistrationPage() {
     }
   };
 
-  return (
-    <div className={styles.wrapper}>
-      <h1>Регистрация</h1>
 
-      <input placeholder="nickName" value={nickName} onChange={(e) => setNickName(e.target.value)} />
-      <input placeholder="E-mail" value={email} type={"email"} onChange={(e) => setEmail(e.target.value)} />
-      <input placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={registrationHandler}>Регистрация</button>
-      <button onClick={()=>navigate('/login')}>Вернуться к авторизации</button>
+  return (
+    <div className='regWindow'>
+      <h1 className='regTitle'>Регистрация</h1>
+      <div className='inputBlockReg'>
+        <input className='regInput' placeholder="Введите ваше имя" value={nickName} onChange={(e) => setNickName(e.target.value)} />
+        <input className='regInput' placeholder="Введите E-mail" value={email} type={"email"} onChange={(e) => setEmail(e.target.value)} />
+        <input className='regInput' placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </div>
+      <div className='buttonBlockReg'>
+        <button className='regBtn' onClick={registrationHandler}>Зарегистрировать</button>
+        <button className='regBtn' onClick={() => navigate('/login')}>К авторизации</button>
+      </div>
     </div>
   );
 }
+
+export default RegistrationPage;

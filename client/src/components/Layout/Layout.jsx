@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from "../Header/Header";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getAuthCookies } from "../../utils/utility.js";
+import './Layout.css'
 
 const Layout = () => {
   const { accessToken } = getAuthCookies()

@@ -1,8 +1,10 @@
 import styles from "./RegistrationPage.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function RegistrationPage() {
+  const navigate = useNavigate();
   const [nickName, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +15,10 @@ export default function RegistrationPage() {
       { nickname: nickName, email, password },
       { withCredentials: true }
     );
-    console.log(result);
+
+    if (result.status === 200) {
+      navigate('/')
+    }
   };
 
   return (
@@ -24,6 +29,7 @@ export default function RegistrationPage() {
       <input placeholder="E-mail" value={email} type={"email"} onChange={(e) => setEmail(e.target.value)} />
       <input placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={registrationHandler}>Регистрация</button>
+      <button onClick={()=>navigate('/login')}>Вернуться к авторизации</button>
     </div>
   );
 }

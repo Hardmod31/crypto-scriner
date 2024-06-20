@@ -27,6 +27,7 @@ export default function LoginPage() {
       <input value={stateLogin} onChange={(e) => setStateLogin(e.target.value)} placeholder={"login"} />
       <input value={statePassword} onChange={(e) => setStatePassword(e.target.value)} placeholder={"password"} />
       <button onClick={loginHandler}>Вход</button>
+      <button onClick={()=>navigate('/registration')}>Регистрация</button>
     </div>
   );
 }

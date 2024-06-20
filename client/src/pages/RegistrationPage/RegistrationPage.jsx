@@ -28,7 +28,7 @@ const RegistrationPage = () =>  {
       <div className='inputBlockReg'>
         <input className='regInput' placeholder="Введите ваше имя" value={nickName} onChange={(e) => setNickName(e.target.value)} />
         <input className='regInput' placeholder="Введите E-mail" value={email} type={"email"} onChange={(e) => setEmail(e.target.value)} />
-        <input className='regInput' placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className='regInput' type='password' placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <div className='buttonBlockReg'>
         <button className='regBtn' onClick={registrationHandler}>Зарегистрировать</button>

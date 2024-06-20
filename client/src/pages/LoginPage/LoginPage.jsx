@@ -26,8 +26,8 @@ const LoginPage = () => {
     <div className='logWindow'>
       <h1 className='logTitle'>Авторизация</h1>
       <div className='inputBlockLog'>
-        <input className='inputLog' value={stateLogin} onChange={(e) => setStateLogin(e.target.value)} placeholder={"Введите ваше имя"} />
-        <input className='inputLog' value={statePassword} onChange={(e) => setStatePassword(e.target.value)} placeholder={"Введите пароль"} />
+        <input className='inputLog' value={stateLogin} onChange={(e) => setStateLogin(e.target.value)} placeholder={"Введите ваш email"} />
+        <input className='inputLog' type='password' value={statePassword} onChange={(e) => setStatePassword(e.target.value)} placeholder={"Введите пароль"} />
       </div>
       <div className='buttonBlockLog'>
         <button className='logBtn' onClick={loginHandler}>Выполнить вход</button>

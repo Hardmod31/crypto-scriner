@@ -1,0 +1,23 @@
+.coin-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(24, 80, 24, 0.94);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+    width: 1860px;
+    color: rgba(24, 80, 24, 0.94);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.coin-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.coin-link {
+    text-decoration: none;
+    color: inherit;
+}

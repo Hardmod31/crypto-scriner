@@ -4,7 +4,9 @@ const MyContext = createContext();
 
 export const MyProvider = ({children}) => {
     const [coinsArrayData, setCoinsArrayData] = useState([]);
-    const value = {coinsArrayData, setCoinsArrayData};
+    const [loginUserId, setLoginUserId] = useState('');
+    const [coinLike, setCoinLike] = useState({});
+    const value = {coinsArrayData, setCoinsArrayData, loginUserId, setLoginUserId, coinLike, setCoinLike};
 
     return <MyContext.Provider value={value}>
         {children}

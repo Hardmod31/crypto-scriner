@@ -1,0 +1,20 @@
+.coin_monitor {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column;
+    font-size: 30px;
+    color: rgba(24, 80, 24, 0.94);
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.coin_info {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+

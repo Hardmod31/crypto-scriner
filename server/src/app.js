@@ -6,6 +6,7 @@ const morgan = require("morgan");
 // const exampleRouter = require('./routes/auth.api.router.js');
 const mainRouter = require("./routes/api.router.js");
 const authRouter = require("./routes/auth.api.router.js");
+const likeRouter = require("./routes/like.api.router.js");
 
 const app = express();
 const { PORT } = process.env;
@@ -23,5 +24,6 @@ app.use(morgan("dev"));
 // руты на главную после всех роутов
 app.use("/", mainRouter);
 app.use("/auth", authRouter);
+app.use("/", likeRouter);
 
 module.exports = app;

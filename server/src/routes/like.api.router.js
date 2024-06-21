@@ -1,7 +1,20 @@
 const router = require('express').Router();
-// const { Whale } = require('../../db/models');
-// const { verifyAccessToken } = require('../middlewares/verifyToken');
+const { Like } = require('../../db/models');
 
+router
+  .post('/like', async (req, res) => {
+    try {
+      await Like.create({
+        user_id: req.body.user_id,
+        coin_id: req.body.coin_id,
+      });
+      const likeId = await Like.findOne({ where: {user_id:req.body.user_id}});
+        res.status(200).json({coin_id: likeId.coin_id, user_id: likeId.user_id});
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(400);
+    }
+  });
 // router
 //   .get('/', async (req, res) => {
 //     try {

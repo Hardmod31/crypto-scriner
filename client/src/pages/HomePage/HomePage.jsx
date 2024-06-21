@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { OPTIONS } from "../../constants/index.js";
 import Coin from "../../components/Coin/Coin.jsx";
-import { Context } from "../../utils/Context.jsx";
+import {Link} from "react-router-dom";
+import {useMyContext} from "../../context/context.jsx";
 
 const HomePage = () => {
-
+  const {setCoinsArrayData} = useMyContext();
   const [coinsData, setCoinsData] = useState([]);
 
   useEffect(() => {
@@ -14,22 +15,20 @@ const HomePage = () => {
       .then((res)=>setCoinsData(res.data.data))
   }, []);
 
-  const removeCoin = id => {
-    setCoinsData(coinsData.filter(coin => {
-      return coin.id !== id
-    }))
-  }
+  useEffect(() => {
+      setCoinsArrayData(coinsData)
+  }, [coinsData]);
 
   return (
-    <Context.Provider value={{ removeCoin }}>
     <div className='coin-list'>
       {coinsData.map((el)=>{
         return (
-        <Coin key={el.id} {...el}/>
+            <div key={el.id}>
+              <Link to={`/coin/${el.id}`}>{<Coin {...el}/>}</Link>
+            </div>
         )
       })}
     </div>
-      </Context.Provider>
   );
 };
 
